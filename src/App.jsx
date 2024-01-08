@@ -1,8 +1,9 @@
+import Todo from "./components/TodoList/Todo";
+
 const App = () => {
-  let x = "2";
   return (
     <div>
-      {x + 2} <div>33</div>
+      <Todo />
     </div>
   );
 };
