@@ -1,0 +1,7 @@
+.quiz-title {
+    margin-top: 84px;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 34px;
+    color: var(--color-typo-main);
+  }

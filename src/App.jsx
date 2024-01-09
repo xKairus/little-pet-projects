@@ -1,9 +1,15 @@
+import Quiz from "./components/Quiz/Quiz";
 import Todo from "./components/TodoList/Todo";
 
 const App = () => {
   return (
     <div>
-      <Todo />
+      <div>
+        <Quiz />
+      </div>
+      <div>
+        <Todo />
+      </div>
     </div>
   );
 };

@@ -1,18 +1,4 @@
-.todo {
-  display: flex;
-  flex-direction: column;
-  width: 600px;
-  min-height: 732px;
-  margin: auto;
-  margin-top: 174px;
-  margin-bottom: 100px;
-  padding: 0 44px;
-  padding-bottom: 30px;
-  background: var(--color-bg-secondary);
-  border-radius: 20px;
-}
-
-.todo-header {
+.todo-title {
   margin-top: 84px;
   font-size: 36px;
   font-weight: 600;

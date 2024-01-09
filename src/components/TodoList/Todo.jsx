@@ -29,8 +29,8 @@ const Todo = () => {
   }, [todos]);
 
   return (
-    <div className="todo">
-      <div className="todo-header">To-Do List</div>
+    <div className="todo container">
+      <h2 className="todo-title">To-Do List</h2>
       <div className="todo-add">
         <input
           ref={inputRef}
