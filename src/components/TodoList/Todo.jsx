@@ -52,7 +52,7 @@ const Todo = () => {
           return (
             <TodoItems
               key={index}
-              setTodos ={setTodos}
+              setTodos={setTodos}
               no={item.no}
               display={item.display}
               text={item.text}
