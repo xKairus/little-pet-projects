@@ -3,12 +3,14 @@ import { quizData } from "../../assets/quizData";
 import "./../../styles/Quiz/Quiz.css";
 
 const Quiz = () => {
-  let [index, setIndex] = useState(0);
-  let [question, setQuestion] = useState(quizData[index]);
-  let [lock, setLock] = useState(false);
-  let [score, setScore] = useState(0);
-  let [result, setResult] = useState(false);
+  // State variables for managing quiz state
+  let [index, setIndex] = useState(0); // Current question index
+  let [question, setQuestion] = useState(quizData[index]); // Current question object
+  let [lock, setLock] = useState(false); // Lock to prevent multiple clicks
+  let [score, setScore] = useState(0); // User's score
+  let [result, setResult] = useState(false); // Flag to show quiz result
 
+  // Function to shuffle an array using Fisher-Yates algorithm
   const shuffleArray = (array) => {
     const shuffledArray = [...array];
     for (let i = shuffledArray.length - 1; i > 0; i--) {
@@ -21,6 +23,7 @@ const Quiz = () => {
     return shuffledArray;
   };
 
+  // Effect to shuffle options when the question index changes
   useEffect(() => {
     setQuestion({
       ...quizData[index],
@@ -28,6 +31,7 @@ const Quiz = () => {
     });
   }, [index]);
 
+  // Function to check the selected answer and update score and UI
   const checkAns = (e, answer, isCorrect) => {
     if (!lock) {
       if (isCorrect) {
@@ -40,18 +44,13 @@ const Quiz = () => {
     setLock(true);
   };
 
+  // Function to move to the next question
   const next = () => {
     if (lock === true) {
       if (index === quizData.length - 1) {
         setResult(true);
         return 0;
       }
-
-      const shuffledOptions = shuffleArray(quizData[index + 1].options);
-      setQuestion({
-        ...quizData[index + 1],
-        options: shuffledOptions,
-      });
 
       setIndex(++index);
       setQuestion(quizData[index]);
@@ -63,6 +62,7 @@ const Quiz = () => {
     }
   };
 
+  // Function to reset the quiz
   const reset = () => {
     setIndex(0);
     setQuestion(quizData[0]);
@@ -71,12 +71,14 @@ const Quiz = () => {
     setResult(false);
   };
 
+  // JSX for rendering the Quiz component
   return (
     <div className="quiz container">
       <h2 className="quiz-title">Quiz App</h2>
       <hr />
       {result ? (
         <>
+          {/* Display quiz result and reset button */}
           <h3 className="quiz-question">
             You Scored {score} out of {quizData.length}
           </h3>
@@ -86,7 +88,6 @@ const Quiz = () => {
         </>
       ) : (
         <>
-          {" "}
           <h3 className="quiz-question">
             {index + 1}. {question.question}
           </h3>
