@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: var(--color-bg-main);
   padding-top: 174px;
@@ -8,10 +13,18 @@ body {
   display: flex;
   flex-direction: column;
   width: 600px;
-  min-height: 732px;
+  min-height: 350px;
   margin: auto;
   padding: 0 44px;
   padding-bottom: 30px;
   background: var(--color-bg-secondary);
   border-radius: 20px;
+}
+
+.container hr {
+  height: 2px;
+  width: 100%;
+  border: none;
+  background: var(--color-bg-main);
+  margin: 20px 0;
 }
