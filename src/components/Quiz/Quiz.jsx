@@ -29,11 +29,20 @@ const Quiz = () => {
       }
       setIndex(++index);
       setQuestion(quizData[index]);
+
       setLock(false);
       document.querySelectorAll(".quiz-option").forEach((option) => {
         option.classList.remove("correct", "wrong");
       });
     }
+  };
+
+  const reset = () => {
+    setIndex(0);
+    setQuestion(quizData[0]);
+    setScore(0);
+    setLock(false);
+    setResult(false);
   };
 
   return (
@@ -42,8 +51,12 @@ const Quiz = () => {
       <hr />
       {result ? (
         <>
-          <h3 className="quiz-question">You Scored {score} out of {quizData.length}</h3>
-          <button className="quiz-btn">RESET</button>
+          <h3 className="quiz-question">
+            You Scored {score} out of {quizData.length}
+          </h3>
+          <button className="quiz-btn" onClick={reset}>
+            RESET
+          </button>
         </>
       ) : (
         <>
