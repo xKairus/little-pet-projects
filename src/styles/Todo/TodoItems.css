@@ -10,9 +10,10 @@
 }
 
 .todoitems-text {
+  padding-top: 7px;
   padding-left: 16px;
   font-size: 22px;
-  color: #404040;
+  color: var(--color-typo-secondary);
 }
 .todoitems-cross-icon {
   padding-right: 25px;
@@ -20,5 +21,5 @@
 }
 
 .line-through {
-  text-decoration: line-through solid #adadad 3px;
+  text-decoration: line-through solid var(--color-accent-main) 3px;
 }
