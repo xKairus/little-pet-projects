@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { quizData } from "../../assets/quizData";
 import "./../../styles/Quiz/Quiz.css";
 
@@ -8,6 +8,25 @@ const Quiz = () => {
   let [lock, setLock] = useState(false);
   let [score, setScore] = useState(0);
   let [result, setResult] = useState(false);
+
+  const shuffleArray = (array) => {
+    const shuffledArray = [...array];
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [
+        shuffledArray[j],
+        shuffledArray[i],
+      ];
+    }
+    return shuffledArray;
+  };
+
+  useEffect(() => {
+    setQuestion({
+      ...quizData[index],
+      options: shuffleArray(quizData[index].options),
+    });
+  }, [index]);
 
   const checkAns = (e, answer, isCorrect) => {
     if (!lock) {
@@ -27,6 +46,13 @@ const Quiz = () => {
         setResult(true);
         return 0;
       }
+
+      const shuffledOptions = shuffleArray(quizData[index + 1].options);
+      setQuestion({
+        ...quizData[index + 1],
+        options: shuffledOptions,
+      });
+
       setIndex(++index);
       setQuestion(quizData[index]);
 
