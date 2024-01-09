@@ -4,7 +4,7 @@ import Todo from "./components/TodoList/Todo";
 
 const App = () => {
   // Array of components to switch between
-  const components = [<Quiz />, <Todo />];
+  const components = [<Quiz key="quiz" />, <Todo key="todo" />];
 
   // State to track the active component index
   const [activeIndex, setActiveIndex] = useState(0);
@@ -31,11 +31,22 @@ const App = () => {
   };
 
   return (
-    <div>
-      <div>{renderComponent()}</div>
-      <div>
-        <button onClick={() => switchToComponent("prev")} className="component-btn">&lt;</button>
-        <button onClick={() => switchToComponent("next")} className="component-btn">&gt;</button>
+    <div className="page">
+      <h1 className="header">Little Pet Projects</h1>
+      <div className="main">
+        <button
+          onClick={() => switchToComponent("prev")}
+          className="component-btn left-btn"
+        >
+          &lt;
+        </button>
+        <div>{renderComponent()}</div>
+        <button
+          onClick={() => switchToComponent("next")}
+          className="component-btn right-btn"
+        >
+          &gt;
+        </button>
       </div>
     </div>
   );
