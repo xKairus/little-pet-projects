@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Quiz from "./components/Quiz/Quiz";
 import Todo from "./components/TodoList/Todo";
+import WeatherApp from "./components/WeatherApp/WeatherApp";
 
 const App = () => {
   // Array of components to switch between
-  const components = [<Quiz key="quiz" />, <Todo key="todo" />];
+  const components = [<Quiz key="quiz" />, <Todo key="todo" />, <WeatherApp key="weatherapp"/>];
 
   // State to track the active component index
   const [activeIndex, setActiveIndex] = useState(0);
@@ -40,7 +41,9 @@ const App = () => {
         >
           &lt;
         </button>
+
         <div>{renderComponent()}</div>
+        
         <button
           onClick={() => switchToComponent("next")}
           className="component-btn right-btn"
