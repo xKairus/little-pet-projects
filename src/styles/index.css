@@ -28,8 +28,7 @@ body {
   width: 600px;
   min-height: 350px;
   margin: auto;
-  padding: 0 44px;
-  padding-bottom: 30px;
+  padding: 45px;
   background: var(--color-bg-secondary);
   border-radius: 20px;
 }
